@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #switch{
+        border: 2px solid black;
+        height: 200px;
+        width: 400px;
+        padding: 15px;
+        border-radius: 120px;
+        display: flex;
+        position: relative;
+        background-color: gray;
+        box-shadow: 3px 3px 100px black;
+    }
+
+    #light{
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        background-color: black;
+        box-shadow: 0px 0px 7px white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #light img, #dark img{
+        height: 100px;
+        width: 100px;
+    }
+
+    #dark{
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        background-color: white;
+        margin-left: 1px;
+        position: absolute;
+        right: 15px;
+        box-shadow: 0px 0px 7px black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="switch">
+            <div id="light" onmousedown="myFunction1()">
+                <img src="images/moon.png" alt="dark">
+            </div>
+            <div id="dark" onmousedown="myFucntion2()">
+                <img src="images/sun.png" alt="light">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let light = document.getElementById('light');
+        let dark = document.getElementById('dark');
+        let switchBlock = document.getElementById('switch');
+
+        function myFunction1(){
+            document.body.style.backgroundColor = 'black';
+            switchBlock.style.border = '2px solid white';
+            light.style.display = 'none';
+            dark.style.display = 'block';
+            switchBlock.style.boxShadow = '5px 1px 100px lightgray';
+            dark.style.display = 'flex';
+            dark.style.justifyContent = 'center';
+            dark.style.alignItems = 'center';
+            switchBlock.style.backgroundColor = 'black';
+        }
+
+        function myFucntion2(){
+            document.body.style.backgroundColor = 'white';
+            switchBlock.style.border = '2px solid black';
+            dark.style.display = 'none';
+            light.style.display = 'block';
+            switchBlock.style.boxShadow = '3px 3px 100px black';
+            light.style.display = 'flex';
+            light.style.justifyContent = 'center';
+            light.style.alignItems = 'center';
+            switchBlock.style.backgroundColor = 'gray';
+        }
+    </script>
+</body>
+</html>
